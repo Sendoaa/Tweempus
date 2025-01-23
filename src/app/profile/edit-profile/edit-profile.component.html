@@ -1,7 +1,7 @@
 <section class="section_edit-profile">
 
   <div class="edit-profile_box rubberBand">
-    <img class="edit-profile_image" src="assets/images/google-icon.png">
+    <img class="edit-profile_image" [src]="imageUrl" alt="Profile image">
     <form class="edit-profile_form" [formGroup]="editUserForm" (ngSubmit)="editProfile(editUserForm)">
       <!-- FULL NAME -->
       <label class="edit-profile_form_label">Introduce tu nombre de usuario:</label>

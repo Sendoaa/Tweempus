@@ -13,13 +13,13 @@
     {
       "id": "3",
       "fullName": "Sendoa",
-      "image": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
+      "image": "https://avatars.githubusercontent.com/u/66849580?v=4"
     }
   ],
   "authenticated": [
     {
-      "id": "Vcxei1737628067194",
-      "author": "1"
+      "id": "WhWUL1737638984626",
+      "author": "3"
     }
   ],
   "twimps": [
@@ -91,6 +91,18 @@
       "twimps": [
         "T4qdo1483390015454"
       ]
+    }
+  ],
+  "followers": [
+    {
+      "id": "4b60",
+      "followerId": "1",
+      "followingId": "3"
+    },
+    {
+      "id": "c2c8",
+      "followerId": "2",
+      "followingId": "3"
     }
   ]
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-
-import { switchMap } from 'rxjs/operators' ;
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthorService } from '../shared/author/author.service';
 import { AuthenticationService } from '../core/authentication.service';
@@ -17,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   idAuthor!: string;
   author!: Author;
+  currentUserId!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +25,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.idAuthor = this.route.snapshot.params['id'];
-    this.authorService.getAuthor(this.idAuthor).subscribe(author => this.author = author);
+    this.authorService.getAuthor(this.idAuthor).subscribe(author => {
+      this.author = author;
+      console.log('Author loaded:', this.author);
+    });
+    this.currentUserId = this.authService.token.idAuthor; // Obtener el ID del usuario autenticado
   }
 
   checkLogin() {

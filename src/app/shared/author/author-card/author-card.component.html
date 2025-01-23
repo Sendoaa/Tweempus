@@ -7,6 +7,9 @@
     <div class="author_data_name">
       {{author.fullName}}
     </div>
+    <div class="author_data_followers">
+      <small>Seguidores: {{followerCount}}</small>
+    </div>
   </div>
 
   <nav class="author_nav">
@@ -19,5 +22,9 @@
       </li>
     </ul>
   </nav>
+
+  <button *ngIf="author?.id !== currentUserId" (click)="toggleFollow()" class="follow-button">
+    {{ isFollowing ? 'Dejar de seguir' : 'Seguir' }}
+  </button>
 
 </section>

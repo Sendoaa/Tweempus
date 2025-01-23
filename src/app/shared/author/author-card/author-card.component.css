@@ -40,6 +40,17 @@
     max-height: 56px;
 }
 
+.author_data_followers {
+    background-color: white;
+    margin: 1em 0.5em 2em 0.5em;
+    font-size: 1em;
+    font-weight: bolder;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 56px;
+}
+
 .author_nav {
     margin: 1rem 1rem 0 1rem;
 }
@@ -95,6 +106,20 @@
     transition: .15s ease-in-out
 }
 
+.follow-button {
+    background-color: #d94f5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .follow-button:hover {
+    background-color: #c43d4a;
+  }
+
 
 /* RESPONSIVE
    ========================================================================= */
@@ -117,7 +142,14 @@
         margin: 120px 0.5em 0.5em 0.9em;
         transition: .35s ease-in-out;
     }
+
+    .author_data_followers {
+        margin: 0 0.5em 0.5em 0.9em;
+        transition: .35s ease-in-out;
+    }
+
     .author_nav_list {
         margin-bottom: 1em;
     }
 }
+

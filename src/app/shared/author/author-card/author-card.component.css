@@ -66,8 +66,6 @@
     font-weight: bold;
 }
 
-.author_nav_list_item:last-child {}
-
 .author_nav_list_link {
     display: inline-block;
     padding: 0.5em;
@@ -80,10 +78,12 @@
     font-weight: bold;
     font-size: 95%;
     text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .author_nav_list_link:hover {
     color: #d94f5c;
+    border-color: #d94f5c;
     font-weight: bold;
     transition: .15s ease-in-out
 }

@@ -17,7 +17,6 @@
     display: inline-block;
     width: 50%;
     box-sizing: border-box;
-    float: left;
     background-color: #fff;
     text-align: center;
 }
@@ -27,17 +26,16 @@
     font-weight: bold;
     border-bottom: 4px solid #fff;
     display: inline-block;
-    float: left;
     padding: 0.5em;
     list-style-position: inside;
     background-color: white;
     color: #666;
-    border-bottom: 4px solid #fff;
     margin-right: 0.2em;
     font-weight: bold;
     box-sizing: border-box;
     text-align: center;
     text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .nav_list_link:hover, .nav_list_link:focus, .nav_list_item-selected .nav_list_link {

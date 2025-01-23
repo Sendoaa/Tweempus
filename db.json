@@ -11,37 +11,12 @@
       "image": "https://randomuser.me/api/portraits/men/82.jpg"
     },
     {
-      "id": "s",
-      "fullname": "Sendoa",
-      "image": ""
-    },
-    {
-      "id": "5",
-      "fullname": "Sendoa",
-      "image": ""
-    },
-    {
-      "id": "8",
-      "fullname": "Sendoa",
-      "image": ""
-    },
-    {
-      "id": "Sendoa",
-      "fullname": "Sendoa",
-      "image": ""
-    },
-    {
-      "id": "S",
+      "id": "3",
       "fullName": "Sendoa",
       "image": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     }
   ],
-  "authenticated": [
-    {
-      "id": "Op0sO1737563209749",
-      "author": "1"
-    }
-  ],
+  "authenticated": [],
   "twimps": [
     {
       "id": "Mx5Cf1483389903318",
@@ -59,64 +34,23 @@
     },
     {
       "id": "2",
-      "author": "1",
+      "author": "3",
       "by": "Author",
-      "content": "hola",
-      "timestamp": "20-1-2025"
+      "content": "Prueba twimp de Sendoa",
+      "timestamp": "23-1-2025"
     },
     {
       "id": "3",
       "author": "1",
       "by": "Author",
-      "content": "hola",
-      "timestamp": "20-1-2025"
-    },
-    {
-      "id": "4",
-      "author": "Sendoa",
-      "by": "Author",
-      "content": "prueba",
-      "timestamp": "20-1-2025"
-    },
-    {
-      "id": "5",
-      "author": "1",
-      "by": "Author",
-      "content": "prueba",
-      "timestamp": "20-1-2025"
-    },
-    {
-      "id": "6",
-      "author": "2",
-      "by": "Author",
-      "content": "Prueba id 2",
-      "timestamp": "20-1-2025"
-    },
-    {
-      "id": "7",
-      "author": "1",
-      "by": "Author",
-      "content": "Prueba id 1",
-      "timestamp": "20-1-2025"
-    },
-    {
-      "id": "8",
-      "by": "Author",
-      "content": "t",
-      "timestamp": "21-1-2025"
-    },
-    {
-      "id": "9",
-      "author": "1",
-      "by": "Author",
-      "content": "Twimp id 1",
+      "content": "Prueba twimp de David",
       "timestamp": "23-1-2025"
     },
     {
-      "id": "10",
-      "author": "S",
+      "id": "4",
+      "author": "2",
       "by": "Author",
-      "content": "Prueba twimp",
+      "content": "Prueba twimp de David Teitelbaum",
       "timestamp": "23-1-2025"
     }
   ],
@@ -124,7 +58,7 @@
     {
       "id": "1",
       "twimps": [
-        "6"
+        "2"
       ]
     },
     {
@@ -134,13 +68,9 @@
       ]
     },
     {
-      "id": "Sendoa",
-      "twimps": []
-    },
-    {
-      "id": "S",
+      "id": "3",
       "twimps": [
-        "2"
+        "Mx5Cf1483389903318"
       ]
     }
   ],

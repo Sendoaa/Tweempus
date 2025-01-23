@@ -103,6 +103,11 @@
       "id": "ee69",
       "followerId": "1",
       "followingId": "3"
+    },
+    {
+      "id": "450c",
+      "followerId": "3",
+      "followingId": "1"
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FollowService } from '../follow.service';
 import { Author } from '../author.model';
+import { AuthorService } from '../author.service';
 
 @Component({
   selector: 'tweempus-author-card',
@@ -12,8 +13,10 @@ export class AuthorCardComponent implements OnInit, OnChanges {
   @Input() currentUserId!: string;
   isFollowing = false;
   followerCount: number = 0;
+  showFollowersPopup = false;
+  followers: Author[] = [];
 
-  constructor(private followService: FollowService) { }
+  constructor(private followService: FollowService, private authorService: AuthorService) { }
 
   ngOnInit(): void {
     console.log('ngOnInit - author:', this.author, 'currentUserId:', this.currentUserId);
@@ -56,5 +59,27 @@ export class AuthorCardComponent implements OnInit, OnChanges {
         this.isFollowing = following.some(follow => follow.followingId === this.author?.id);
       });
     }
+  }
+
+  toggleFollowersPopup(): void {
+    this.showFollowersPopup = !this.showFollowersPopup;
+    if (this.showFollowersPopup) {
+      this.loadFollowers();
+    }
+  }
+
+  private loadFollowers(): void {
+    this.followService.getFollowers(this.author.id).subscribe(follows => {
+      const followerIds = follows.map(follow => follow.followerId);
+      console.log('Follower IDs:', followerIds); // Añadir log para verificar los IDs de los seguidores
+      if (followerIds.length > 0) {
+        this.authorService.getAuthorsByIds(followerIds).subscribe(authors => {
+          this.followers = authors.filter(author => author.id !== this.currentUserId); // Filtrar el usuario actual
+          console.log('Followers loaded:', this.followers); // Añadir log para verificar los datos
+        });
+      } else {
+        console.log('No followers found');
+      }
+    });
   }
 }

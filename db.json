@@ -18,7 +18,7 @@
   ],
   "authenticated": [
     {
-      "id": "WhWUL1737638984626",
+      "id": "j9t2x1737644046024",
       "author": "3"
     }
   ],
@@ -95,13 +95,13 @@
   ],
   "followers": [
     {
-      "id": "4b60",
-      "followerId": "1",
+      "id": "c2c8",
+      "followerId": "2",
       "followingId": "3"
     },
     {
-      "id": "c2c8",
-      "followerId": "2",
+      "id": "ee69",
+      "followerId": "1",
       "followingId": "3"
     }
   ]

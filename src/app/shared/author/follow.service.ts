@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
 import { Follow } from './follow.model'; // Asegúrate de que la ruta sea correcta
 
 @Injectable({
@@ -15,7 +15,9 @@ export class FollowService {
 
   followUser(followerId: string, followingId: string): Observable<Follow> {
     console.log('followUser - followerId:', followerId, 'followingId:', followingId);
-    return this.http.post<Follow>(`${this.apiUrl}/followers`, { followerId, followingId });
+    return this.http.post<Follow>(`${this.apiUrl}/followers`, { followerId, followingId }).pipe(
+      catchError(this.handleError)
+    );
   }
 
   unfollowUser(followerId: string, followingId: string): Observable<void> {
@@ -32,21 +34,34 @@ export class FollowService {
               observer.complete();
             });
           }
-        })
+        }),
+        catchError(this.handleError)
       );
   }
 
   getFollowers(userId: string): Observable<Follow[]> {
-    return this.http.get<Follow[]>(`${this.apiUrl}/followers?followingId=${userId}`);
+    return this.http.get<Follow[]>(`${this.apiUrl}/followers?followingId=${userId}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getFollowing(userId: string): Observable<Follow[]> {
-    return this.http.get<Follow[]>(`${this.apiUrl}/followers?followerId=${userId}`);
+    return this.http.get<Follow[]>(`${this.apiUrl}/followers?followerId=${userId}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getFollowerCount(userId: string): Observable<number> {
     return this.getFollowers(userId).pipe(
-      map((followers: Follow[]) => followers.length)
+      map((followers: Follow[]) => followers.length),
+      catchError(this.handleError)
     );
+  }
+
+  private handleError(error: any) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg);
+    return throwError(errMsg);
   }
 }

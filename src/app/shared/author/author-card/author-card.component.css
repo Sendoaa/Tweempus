@@ -112,13 +112,73 @@
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  .follow-button:hover {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.follow-button:hover {
     background-color: #c43d4a;
-  }
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/*Lista de seguidores*/
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.popup-content {
+    text-align: center;
+}
+
+.popup-content h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #d94f5c;
+}
+
+.popup-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup-content li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.follower-image {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.popup-content button {
+    background-color: #d94f5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.popup-content button:hover {
+    background-color: #c43d4a;
+}
 
 
 /* RESPONSIVE
@@ -138,6 +198,7 @@
         margin-right: 2%;
         transition: .35s ease-in-out
     }
+
     .author_data_name {
         margin: 120px 0.5em 0.5em 0.9em;
         transition: .35s ease-in-out;
@@ -152,4 +213,3 @@
         margin-bottom: 1em;
     }
 }
-

@@ -7,6 +7,9 @@
     <div class="author_data_name">
       {{author.fullName}}
     </div>
+    <div class="author_data_followers">
+      <small (click)="toggleFollowersPopup()" style="cursor: pointer;">Seguidores: {{followerCount}}</small>
+    </div>
   </div>
 
   <nav class="author_nav">
@@ -19,5 +22,24 @@
       </li>
     </ul>
   </nav>
+
+  <button *ngIf="author?.id !== currentUserId" (click)="toggleFollow()" class="follow-button">
+    {{ isFollowing ? 'Dejar de seguir' : 'Seguir' }}
+  </button>
+
+  <!-- Lista de seguidores -->
+  <div *ngIf="showFollowersPopup" class="popup">
+    <div class="popup-content">
+      <h3>Seguidores</h3>
+      <ul>
+        <li *ngIf="followers.length === 0">No hay seguidores</li>
+        <li *ngFor="let follower of followers">
+          <img [src]="follower.image" alt="Imagen del usuario" class="follower-image">
+          <span>{{follower.fullName}}</span>
+        </li>
+      </ul>
+      <button (click)="toggleFollowersPopup()">Cerrar</button>
+    </div>
+  </div>
 
 </section>

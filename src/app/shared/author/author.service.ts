@@ -11,6 +11,7 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class AuthorService {
 
+  private apiUrl = 'http://localhost:3000';
   private url: string = environment.url + 'authors';
   private urlFavorite: string = environment.url + 'author-favorites';
 
@@ -60,5 +61,12 @@ export class AuthorService {
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg);
     return throwError(errMsg);
+  }
+
+  getAuthorsByIds(ids: string[]): Observable<Author[]> {
+    const idsParam = ids.map(id => `id=${id}`).join('&');
+    return this.httpClient.get<Author[]>(`${this.apiUrl}/authors?${idsParam}`).pipe(
+      catchError(this.handleError)
+    );
   }
 }

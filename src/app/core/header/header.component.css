@@ -18,4 +18,23 @@
     right: 15px;
     border: none;
     background-color: white;
+    cursor: pointer;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.header_auth:hover {
+    color: red;
+}
+
+.header_auth::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: red;
+    transition: width 0.3s ease;
+}
+
+.header_auth:hover::after {
+    width: 100%;
 }

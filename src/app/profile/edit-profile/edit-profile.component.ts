@@ -15,6 +15,9 @@ export class EditProfileComponent implements OnInit {
 
   editUserForm!: FormGroup;
   currentAuthor!: Author;
+  showAlert = false;
+  imageUrl: string = 'assets/images/google-icon.png';
+
 
   constructor(
     private authService: AuthenticationService,
@@ -26,11 +29,33 @@ export class EditProfileComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       image: ['']
     });
+
+    this.editUserForm.get('image')?.valueChanges.subscribe(value => {
+      this.updateImage(value);
+    });
+  }
+
+  updateImage(url: string) {
+    const img = new Image();
+    img.onload = () => {
+      this.imageUrl = url;
+    };
+    img.onerror = () => {
+      this.imageUrl = 'assets/images/google-icon.png';
+    };
+    img.src = url;
   }
 
   editProfile(form: any) {
     this.authorService.updateAuthor(this.authService.token.idAuthor, form.value.fullName, form.value.image).subscribe(
-      response => console.log('Usuario modificado')
-    )
+      response => {
+        console.log('Usuario modificado');
+        this.showAlert = true;
+        setTimeout(() => {
+          this.showAlert = false;
+            window.location.reload();
+        }, 3000)
+      }
+    );
   }
 }

@@ -46,7 +46,7 @@ export class AuthenticationService {
   logout(): void {
     this.deleteSession().subscribe(response => {
       localStorage.removeItem("token");
-      this.router.navigate(['/login']);
+      window.location.href = '/login';
     });
   }
 

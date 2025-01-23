@@ -15,6 +15,7 @@ export class EditProfileComponent implements OnInit {
 
   editUserForm!: FormGroup;
   currentAuthor!: Author;
+  showAlert = false;
 
   constructor(
     private authService: AuthenticationService,
@@ -30,7 +31,13 @@ export class EditProfileComponent implements OnInit {
 
   editProfile(form: any) {
     this.authorService.updateAuthor(this.authService.token.idAuthor, form.value.fullName, form.value.image).subscribe(
-      response => console.log('Usuario modificado')
-    )
+      response => {
+        console.log('Usuario modificado');
+        this.showAlert = true;
+        setTimeout(() => {
+          this.showAlert = false;
+        }, 3000)
+      }
+    );
   }
 }

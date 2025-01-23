@@ -3,7 +3,7 @@
     {
       "id": "1",
       "fullName": "David East",
-      "image": "https://randomuser.me/api/portraits/men/83.jpg"
+      "image": "https://randomuser.me/api/portraits/men/52.jpg"
     },
     {
       "id": "2",
@@ -16,7 +16,12 @@
       "image": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     }
   ],
-  "authenticated": [],
+  "authenticated": [
+    {
+      "id": "Vcxei1737628067194",
+      "author": "1"
+    }
+  ],
   "twimps": [
     {
       "id": "Mx5Cf1483389903318",
